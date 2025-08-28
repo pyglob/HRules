@@ -4,6 +4,8 @@
 It helps HR teams, compliance officers, and document managers ensure that **all incoming and outgoing documents** — from job postings to contracts — are **clear, visible, and compliant**.  
 No hidden clauses, no low‑contrast fine print, no invisible metadata.
 
+> 💡 **Want to help improve HRules?** See [Contributing Guidelines](CONTRIBUTING.md).
+
 ---
 
 ## Features
@@ -19,56 +21,53 @@ No hidden clauses, no low‑contrast fine print, no invisible metadata.
 ---
 
 ## Installation
-   Steps to install HRules
 
-### Install Dependencies
-
-#### macOS / Linux
-    python3 -m venv .venv
-    source .venv/bin/activate
-
-#### Windows (PowerShell)
-    python -m venv .venv
-    .venv\Scripts\Activate.ps1
-
-Once your virtual environment is active:
-
-```bash 
-pip install -r requirements.txt
-```
-
-#### This will install all required libraries, including:
+### **Linux / macOS**
 ```bash
-Pillow
-python-docx
-PyMuPDF
-pytesseract
-BeautifulSoup4
-cssutils
-psd-tools
-reportlab
-```
+# Get the latest HRules
+git clone https://github.com/<your-username>/HRules.git
+cd HRules
 
-### Usage
-```bash
-hrules path/to/file_or_folder
-```
+# First time only: ensure launchers are executable
+chmod +x hrules hrules-gui
 
-### GUI
-How to run the graphical interface
-```bash
-hrules-gui
+# Launch the GUI
+./hrules-gui
+
+# Or run CLI mode
+./hrules path/to/file.pdf
 ```
+**On first run, HRules will create a local .venv in the project folder and install all dependencies automatically**
+
+
+## Windows (batch or PowerShell)
+
+# Get the latest HRules
+git clone https://github.com/<your-username>/HRules.git
+cd HRules
+
+# Launch the GUI
+.\hrules-gui.bat   # or: .\hrules-gui.ps1
+
+# Or run CLI mode
+.\hrules.bat path\to\file.pdf
+
+
 
 ## Project Structure
 ```bash
-src/hrules/
-    __init__.py    # Marks this as a Python package
-    scanner.py     # Core scanning logic
-    report.py      # Report formatting and export
-    cli.py         # Command-line interface
-    gui.py         # HR-friendly GUI
-requirements.txt   # Python dependencies
-pyproject.toml     # Project metadata and build config
-README.md          # Project documentation
+HRules/
+├── hrules               # CLI launcher (Linux/macOS)
+├── hrules-gui           # GUI launcher (Linux/macOS)
+├── hrules.bat           # CLI launcher (Windows)
+├── hrules-gui.bat       # GUI launcher (Windows)
+├── hrules.ps1           # CLI launcher (Windows PowerShell)
+├── hrules-gui.ps1       # GUI launcher (Windows PowerShell)
+├── pyproject.toml       # Packaging and entry points
+└── src/
+    └── hrules/          # Main Python package
+        ├── __init__.py
+        ├── cli.py
+        ├── gui.py
+        └── ...
 ```
