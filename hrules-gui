@@ -17,4 +17,12 @@ source "$VENV/bin/activate"
 python -m pip install --upgrade pip >/dev/null
 python -m pip install -e "$HERE" >/dev/null
 
+# Check Tkinter
+if ! python3 -c "import tkinter" 2>/dev/null; then
+    echo "⚠ Tkinter is missing."
+    echo "On Ubuntu/Debian: sudo apt install python3-tk"
+    echo "On Fedora/RHEL:  sudo dnf install python3-tkinter"
+    exit 1
+fi
+
 exec python -m hrules.gui
