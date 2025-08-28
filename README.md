@@ -43,6 +43,7 @@ chmod +x hrules hrules-gui
 ## Windows (batch or PowerShell)
 
 # Get the latest HRules
+```bash
 git clone https://github.com/<your-username>/HRules.git
 cd HRules
 
@@ -52,7 +53,7 @@ cd HRules
 # Or run CLI mode
 .\hrules.bat path\to\file.pdf
 
-
+```
 
 ## Project Structure
 ```bash
