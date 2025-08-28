@@ -1,0 +1,25 @@
+#!/usr/bin/env bash
+set -euo pipefail
+
+HERE="$(cd "$(dirname "${BASH_SOURCE[0]}")" && pwd)"
+VENV="$HERE/.venv"
+
+# Use the best available Python 3
+PY=python3
+command -v "$PY" >/dev/null || { echo "python3 not found"; exit 1; }
+
+# Create venv if missing
+if [[ ! -d "$VENV" ]]; then
+  "$PY" -m venv "$VENV"
+fi
+
+# Activate
+# shellcheck disable=SC1091
+source "$VENV/bin/activate"
+
+# First-run install or ensure editable install present
+python -m pip install --upgrade pip >/dev/null
+python -m pip install -e "$HERE" >/dev/null
+
+# Run CLI, passing all args through
+exec python -m hrules.cli "$@"
