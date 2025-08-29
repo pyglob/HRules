@@ -4,7 +4,7 @@
 It helps HR teams, compliance officers, and document managers ensure that **all incoming and outgoing documents** — from job postings to contracts — are **clear, visible, and compliant**.  
 No hidden clauses, no low‑contrast fine print, no invisible metadata.
 
-> 💡 **Want to help improve HRules?** See [Contributing Guidelines](CONTRIBUTING.md).
+>  **Want to help improve HRules?** See [Contributing Guidelines](CONTRIBUTING.md).
 
 ---
 
